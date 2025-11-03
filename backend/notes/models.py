@@ -4,18 +4,18 @@ from datetime import datetime
 class Subtask(EmbeddedDocument):
     name = fields.StringField(max_length=100, required = True)
     description = fields.StringField()
-    is_complited = fields.BooleanField(default=False)
+    is_completed = fields.BooleanField(default=False)
     created_date = fields.DateTimeField(default = datetime.now)
-    complited_date = fields.DateTimeField(null=True)
+    completed_date = fields.DateTimeField(null=True)
 
     def task_comolited(self):
-        self.is_complited = True
-        self.date_complited = datetime.now()
+        self.is_completed = True
+        self.date_completed = datetime.now()
         self.save()
 
     def task_pending(self):
-        self.is_complited = False
-        self.complited_date = None
+        self.is_completed = False
+        self.completed_date = None
         self.save()
     
 
@@ -25,12 +25,12 @@ class Task(Document):
     description = fields.StringField()
     date_created = fields.DateTimeField(default=datetime.now)
     date_updated = fields.DateTimeField(default=datetime.now)
-    date_complited = fields.DateTimeField(null = True)
+    date_completed = fields.DateTimeField(null = True)
     due_date = fields.DateTimeField(null=True)
-    is_complited = fields.BooleanField(default = True)
+    is_completed = fields.BooleanField(default = False)
     status = fields.StringField(
-        choices = ('panding', 'in_progress', 'complited'),
-          default = 'panding'
+        choices = ('pending', 'in_progress', 'complited'),
+          default = 'pending'
     )
 
     priority = fields.StringField(

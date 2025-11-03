@@ -159,7 +159,7 @@
                         <div class="text-gray-600">пользователей</div>
                     </div>
                     <div>
-                        <div class="text-3xl font-bold text-gray-900">я гей</div>
+                        <div class="text-3xl font-bold text-gray-900">очень много</div>
                         <div class="text-gray-600">задач выполнено</div>
                     </div>
                 </div>

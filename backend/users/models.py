@@ -3,10 +3,10 @@ from django.contrib.auth.hashers import make_password, check_password
 from datetime import datetime
 
 class Users(Document):
-    email = fields.StringField(max_length=50, required = True, unique = False)
+    email = fields.StringField(max_length=50, required = True, unique = True)
     name = fields.StringField(max_length=15, required = True, unique = True)
     password = fields.StringField(max_length=255, required = True, unique = False)
-    is_active = fields.BooleanField(default=False)
+    is_active = fields.BooleanField(default=True)
     is_staff = fields.BooleanField(default=False)
     date_joined = fields.DateTimeField(default=datetime.now)
     
